@@ -1,0 +1,32 @@
+server:
+  port: 8012
+#  ssl:
+#    key-store: privateKey-notetakingappapi.pem
+#    store-type: PKCS8
+##    key-store-password: ${SERVER_SSL_KEY_STORE_PASSWORD}
+#    key-store-password: Long?Long?Password!12390
+#    key-alias: server
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+    allow-circular-references: true
+  application:
+    name: notetakingappapi
+  jpa:
+    hibernate:
+      ddl-auto: update
+#      ddl-auto: create-drop
+      dialect: org.hibcernate.dialect.PostgreSQLDialect
+      fail-on-empty: false
+    properties:
+      hibernate: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/notetakingapp?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: notetaking
+    password: Passwrd#123
+application:
+  security:
+    jwt:
+      secret-key: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
+      expiration: 86400000 # a day
